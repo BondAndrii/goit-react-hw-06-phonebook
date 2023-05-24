@@ -2,12 +2,15 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 
+import { getContacts } from "redux/contacts/selectors";
+
 import PropTypes from "prop-types";
 
 import "./ContactList.css"
 
 const ContactList = ({ contacts, onDelete }) => {
-    const cont = useSelector(state => state.contacts);
+    const cont = useSelector(getContacts)
+    // const cont = useSelector(state => state.contacts);
     console.log("cont", cont);
     return (
     <ul className="ContactList">
