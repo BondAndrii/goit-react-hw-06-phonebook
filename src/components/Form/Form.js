@@ -13,7 +13,7 @@ import "./Form.css"
 export default function Form({ priSubmit }) {
     
     const dispatch = useDispatch();
-    const [ setId] = useState('');
+    // const [id, setId] = useState('');
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
     
@@ -21,13 +21,13 @@ export default function Form({ priSubmit }) {
     const numberId = nanoid();
 
     function reset() {
-        setId('');
+        // setId('');
         setName('');
         setNumber('');        
     }
     const handleChange = e => {
-        const { id, name, value } = e.currentTarget;
-        setId(id);
+        const { name, value } = e.currentTarget;
+        // setId(id);
         switch (name) {
             case "names":
                 setName(value);
