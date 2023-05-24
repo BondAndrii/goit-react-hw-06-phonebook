@@ -8,7 +8,7 @@ import { getContacts } from "redux/contacts/selectors";
 
 import { nanoid } from "nanoid";
 
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 import "./Form.css"
 
@@ -100,6 +100,6 @@ return (
     
 }
 
-Form.propTypes = {
-    priSubmit: PropTypes.func.isRequired,
-}
+// Form.propTypes = {
+//     priSubmit: PropTypes.func.isRequired,
+// }

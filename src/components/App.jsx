@@ -1,16 +1,23 @@
 import React from "react";
-import { useState, useEffect } from 'react';
+import {
+  useState,
+  // useEffect
+} from 'react';
 import Form from "./Form/Form";
 import Filter from './Filter/Filter'
 import ContactList from "./ContactList/ContactList";
-import contactsList from "../../src/data/contacts.json"
+// import contactsList from "../../src/data/contacts.json"
 import "./App.css";
+import { useSelector } from "react-redux";
+import { getContacts } from "redux/contacts/selectors";
 
 export default function App() {
 
-  const [contacts, setContacts] = useState(() => (JSON.parse(window.localStorage.getItem('contactsArr')) ?? contactsList)); 
+  // const [contacts, setContacts] = useState(() => (JSON.parse(window.localStorage.getItem('contactsArr')) ?? contactsList)); 
  
   const [filter, setFilter] = useState('');
+
+  const contacts = useSelector(getContacts);
 
   // const formSubmitHandler = data => {
   //       if (contacts.find(contact => contact.name === data.name)) {
@@ -24,9 +31,9 @@ export default function App() {
       
   //   }  
   // }
-  useEffect(()=>{
-    window.localStorage.setItem('contactsArr', JSON.stringify(contacts))
-  }, [contacts]);
+  // useEffect(()=>{
+  //   window.localStorage.setItem('contactsArr', JSON.stringify(contacts))
+  // }, [contacts]);
   
   const doFilter = (e) => { 
     setFilter(e.currentTarget.value)
@@ -43,16 +50,16 @@ export default function App() {
  const arr = toFoundAbonent(filter, contacts)
 
   
-  const deleteContact = (contactId) => { 
-    setContacts((contacts) => (contacts.filter(contact => contact.id !== contactId)));
-  };
+  // const deleteContact = (contactId) => { 
+  //   setContacts((contacts) => (contacts.filter(contact => contact.id !== contactId)));
+  // };
   return (
     <div className="Container">
       <h1 className="Tittle">Записник контактів</h1>
       <Form />      
       <h2 className="SecondTittle">Контакти</h2>
       <Filter value={filter} onChange={doFilter} onDelete={doClear} />
-      <ContactList contacts={arr} onDelete={deleteContact} />
+      <ContactList contacts={arr}  />
     </div>
   );
 }

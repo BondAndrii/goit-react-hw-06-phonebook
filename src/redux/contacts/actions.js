@@ -12,3 +12,10 @@ export const addContact = (name, number) => {
         }
     }
 }
+
+export const delContact = (id) => {
+    return {
+        type: "contacts/delContact",
+        payload: id,
+    }
+}
