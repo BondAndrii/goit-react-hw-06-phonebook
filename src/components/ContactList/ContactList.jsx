@@ -8,10 +8,9 @@ import PropTypes from "prop-types";
 
 import "./ContactList.css"
 
-const ContactList = ({ contacts, onDelete }) => {
-    const cont = useSelector(getContacts)
-    // const cont = useSelector(state => state.contacts);
-    console.log("cont", cont);
+const ContactList = ({onDelete }) => {
+    const contacts = useSelector(getContacts);
+    console.log("cont", contacts);
     return (
     <ul className="ContactList">
         {contacts.map((contact) => <li className="ContactList__element" key={contact.id} id={contact.id}>

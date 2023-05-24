@@ -1,9 +1,18 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
+
+import { useDispatch } from "react-redux";
+
+import { addContact } from "redux/contacts/actions";
+
 import { nanoid } from "nanoid";
+
 import PropTypes from "prop-types";
+
 import "./Form.css"
 
-export default function Form({priSubmit}) {
+export default function Form({ priSubmit }) {
+    
+    const dispatch = useDispatch();
     const [id, setId] = useState('');
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
@@ -34,9 +43,10 @@ export default function Form({priSubmit}) {
     }
     const handleSubmit = e => {
         e.preventDefault();
-        const data = { id, name, number };       
-        reset();         
-        return priSubmit(data);
+        const data = { name, number }; 
+        dispatch(addContact(data));
+        reset(); 
+        // return priSubmit(data);
         
     }
 return (            

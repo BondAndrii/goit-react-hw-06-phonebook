@@ -10,7 +10,7 @@ import "./Filter.css"
 
 const Filter = ({ value, onChange, onDelete }) => {
     const filtr = useSelector(getFilter);
-    console.log("filtr", filtr);
+    // console.log("filtr", filtr);
     return (
     <label className="LabelFilter">
         <p className="Text">Пошук за ім'ям:</p> 
