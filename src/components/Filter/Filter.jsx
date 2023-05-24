@@ -1,15 +1,15 @@
 import React from "react";
 
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
-import { getFilter } from "redux/filter/selectors";
+// import { getFilter } from "redux/filter/selectors";
 
 import PropTypes from "prop-types";
 
 import "./Filter.css"
 
 const Filter = ({ value, onChange, onDelete }) => {
-    const filtr = useSelector(getFilter);
+    // const filtr = useSelector(getFilter);
     // console.log("filtr", filtr);
     return (
     <label className="LabelFilter">

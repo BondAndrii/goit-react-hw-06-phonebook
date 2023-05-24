@@ -13,7 +13,7 @@ import "./Form.css"
 export default function Form({ priSubmit }) {
     
     const dispatch = useDispatch();
-    const [id, setId] = useState('');
+    const [ setId] = useState('');
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
     
