@@ -12,18 +12,18 @@ export default function App() {
  
   const [filter, setFilter] = useState('');
 
-  const formSubmitHandler = data => {
-        if (contacts.find(contact => contact.name === data.name)) {
-      const message = `Абонент ${data.name} вже є в книзі`;
-      alert(message);  
-    }
-        else {
+  // const formSubmitHandler = data => {
+  //       if (contacts.find(contact => contact.name === data.name)) {
+  //     const message = `Абонент ${data.name} вже є в книзі`;
+  //     alert(message);  
+  //   }
+  //       else {
           
-          setContacts(contacts => [data, ...contacts]);
-          console.log("in app", contacts, filter);
+  //         setContacts(contacts => [data, ...contacts]);
+  //         console.log("in app", contacts, filter);
       
-    }  
-  }
+  //   }  
+  // }
   useEffect(()=>{
     window.localStorage.setItem('contactsArr', JSON.stringify(contacts))
   }, [contacts]);
@@ -49,7 +49,7 @@ export default function App() {
   return (
     <div className="Container">
       <h1 className="Tittle">Записник контактів</h1>
-      <Form priSubmit={formSubmitHandler} />      
+      <Form />      
       <h2 className="SecondTittle">Контакти</h2>
       <Filter value={filter} onChange={doFilter} onDelete={doClear} />
       <ContactList contacts={arr} onDelete={deleteContact} />

@@ -10,6 +10,7 @@ export const rootReducer = (state = initialState, action) => {
     console.log("in reducer", state)
     switch (action.type) {
         case "contacts/addContact":
+            
             return {
                 ...state,
                 contacts: [

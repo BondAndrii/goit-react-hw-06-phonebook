@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { addContact } from "redux/contacts/actions";
+
+import { getContacts } from "redux/contacts/selectors";
 
 import { nanoid } from "nanoid";
 
@@ -10,9 +12,10 @@ import PropTypes from "prop-types";
 
 import "./Form.css"
 
-export default function Form({ priSubmit }) {
+export default function Form() {
     
     const dispatch = useDispatch();
+    const contacts = useSelector(getContacts);
     // const [id, setId] = useState('');
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
@@ -43,8 +46,16 @@ export default function Form({ priSubmit }) {
     }
     const handleSubmit = e => {
         e.preventDefault();
-        const data = { name, number }; 
-        dispatch(addContact(data));
+        if (contacts.find(contact => contact.name === name)) {
+            const message = `Абонент ${name} вже є в книзі`;
+            alert(message);  
+        }
+        else {          
+          dispatch(addContact(name, number));         
+        }  
+        
+       
+        
         reset(); 
         // return priSubmit(data);
         
