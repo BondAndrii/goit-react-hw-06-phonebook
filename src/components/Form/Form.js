@@ -7,6 +7,7 @@ export default function Form({priSubmit}) {
     const [id, setId] = useState('');
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
+    
     const nameId = nanoid();
     const numberId = nanoid();
 
