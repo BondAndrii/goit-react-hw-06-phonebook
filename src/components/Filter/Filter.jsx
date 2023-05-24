@@ -1,8 +1,15 @@
 import React from "react";
+
+import { useSelector } from "react-redux";
+
 import PropTypes from "prop-types";
+
 import "./Filter.css"
 
-const Filter = ({value, onChange, onDelete}) => (
+const Filter = ({ value, onChange, onDelete }) => {
+    const filtr = useSelector(state => state.filter);
+    console.log("filtr", filtr);
+    return (
     <label className="LabelFilter">
         <p className="Text">Пошук за ім'ям:</p> 
         <input
@@ -13,7 +20,7 @@ const Filter = ({value, onChange, onDelete}) => (
         />
         <button className="ButtonFilter" type="button" onClick={onDelete}>Зітрись!</button>
     </label>
-        )
+    )}
 export default Filter;
 
 Filter.propTypes = {

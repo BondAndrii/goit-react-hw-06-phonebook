@@ -1,8 +1,15 @@
 import React from "react";
+
+import { useSelector } from "react-redux";
+
 import PropTypes from "prop-types";
+
 import "./ContactList.css"
 
-const ContactList = ({ contacts, onDelete }) => (
+const ContactList = ({ contacts, onDelete }) => {
+    const cont = useSelector(state => state.contacts);
+    console.log("cont", cont);
+    return (
     <ul className="ContactList">
         {contacts.map((contact) => <li className="ContactList__element" key={contact.id} id={contact.id}>
             <p className="Text">{contact.name}: {contact.number}</p>
@@ -10,7 +17,7 @@ const ContactList = ({ contacts, onDelete }) => (
         </li>
         )}
     </ul>
-);
+);}
 
 export default ContactList;
 
