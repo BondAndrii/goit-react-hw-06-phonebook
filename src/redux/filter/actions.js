@@ -6,14 +6,9 @@ export const addFilter = (filter) => {
     }
 }
 
-export const doFilter = (a, b) => {
+export const doClear = () => {
     return {
-        type: "filter/doFilter",
-        payload: {
-            a,
-            b,
-        }
-    }
-     
+        type: "filter/doClear",       
+    }     
     
 }

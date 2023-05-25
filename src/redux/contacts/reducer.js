@@ -31,10 +31,11 @@ export const rootReducer = (state = initialState, action) => {
                
 
             }
-        // case "filter/doFilter":
-        //     return {
-
-        //     }
+        case "filter/doClear":            
+            return {
+                ...state,
+                filter:"",
+            }
         default: 
             return state;
     }

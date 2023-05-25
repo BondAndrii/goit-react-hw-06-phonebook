@@ -10,13 +10,14 @@ import ContactList from "./ContactList/ContactList";
 import "./App.css";
 import { useSelector } from "react-redux";
 import { getContacts } from "redux/contacts/selectors";
+import { getFilter } from "redux/filter/selectors";
 
 export default function App() {
 
   // const [contacts, setContacts] = useState(() => (JSON.parse(window.localStorage.getItem('contactsArr')) ?? contactsList)); 
  
   const [filter, setFilter] = useState('');
-
+  const filtr = useSelector(getFilter);
   const contacts = useSelector(getContacts);
 
   // const formSubmitHandler = data => {
@@ -35,9 +36,9 @@ export default function App() {
   //   window.localStorage.setItem('contactsArr', JSON.stringify(contacts))
   // }, [contacts]);
   
-  const doFilter = (e) => { 
-    setFilter(e.currentTarget.value)
-  }
+  // const doFilter = (e) => { 
+  //   setFilter(e.currentTarget.value)
+  // }
   const doClear = () => {
     setFilter(''); 
   }
@@ -47,7 +48,7 @@ export default function App() {
       contact.name.toLowerCase().includes(normalizedFilter),
     );
   };
- const arr = toFoundAbonent(filter, contacts)
+ const arr = toFoundAbonent(filtr, contacts)
 
   
   // const deleteContact = (contactId) => { 
@@ -58,7 +59,7 @@ export default function App() {
       <h1 className="Tittle">Записник контактів</h1>
       <Form />      
       <h2 className="SecondTittle">Контакти</h2>
-      <Filter value={filter} onChange={doFilter} onDelete={doClear} />
+      <Filter value={filter}  onDelete={doClear} />
       <ContactList contacts={arr}  />
     </div>
   );

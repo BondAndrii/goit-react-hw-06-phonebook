@@ -1,18 +1,20 @@
 import React from "react";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import { getContacts } from "redux/contacts/selectors";
+// import { getContacts } from "redux/contacts/selectors";
 
 import { delContact } from "redux/contacts/actions";
 
 import PropTypes from "prop-types";
 
 import "./ContactList.css"
+// import { doFilter } from "redux/filter/actions";
 
-const ContactList = () => {
+const ContactList = ({contacts}) => {
     const dispatch = useDispatch();
-    const contacts = useSelector(getContacts);
+    // const contacts = useSelector(getContacts);
+    // const arr = () => dispatch(doFilter());
     console.log("cont", contacts);
     return (
     <ul className="ContactList">

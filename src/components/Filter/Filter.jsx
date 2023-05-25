@@ -4,7 +4,7 @@ import {useDispatch, useSelector } from "react-redux";
 
 import { getFilter } from "redux/filter/selectors";
 
-import { addFilter } from "redux/filter/actions";
+import { addFilter, doClear } from "redux/filter/actions";
 
 // import { getContacts } from "redux/contacts/selectors";
 
@@ -29,7 +29,11 @@ const Filter = ({ value, onChange, onDelete }) => {
             placeholder="введи ім'я"
             onChange={doFilter}
         />
-        <button className="ButtonFilter" type="button" onClick={onDelete}>Зітрись!</button>
+            <button
+                className="ButtonFilter"
+                type="button"
+                onClick={()=>dispatch(doClear())}
+            >Зітрись!</button>
     </label>
     )}
 export default Filter;
