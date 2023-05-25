@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import {
 //   useState,
 //   useEffect
@@ -32,9 +32,9 @@ export default function App() {
       
   //   }  
   // }
-  // useEffect(()=>{
-  //   window.localStorage.setItem('contactsArr', JSON.stringify(contacts))
-  // }, [contacts]);
+  useEffect(()=>{
+    window.localStorage.setItem('contactsArr', JSON.stringify(contacts))
+  }, [contacts]);
   
   // const doFilter = (e) => { 
   //   setFilter(e.currentTarget.value)

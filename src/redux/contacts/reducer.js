@@ -2,7 +2,7 @@
 import initialContacts from "../../data/contacts.json";
 
 
-const contactsInitialState = initialContacts;
+const contactsInitialState = JSON.parse(window.localStorage.getItem('contactsArr')) ?? initialContacts;
 
 
 export const contactsReducer = (state = contactsInitialState, action) => {
