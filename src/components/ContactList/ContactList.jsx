@@ -1,5 +1,7 @@
 import React from "react";
 
+// import initialContacts from "../../data/contacts.json";
+
 import { useDispatch } from "react-redux";
 
 // import { getContacts } from "redux/contacts/selectors";

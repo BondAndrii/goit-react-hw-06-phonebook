@@ -1,8 +1,16 @@
-import { createStore } from "redux";
+import { combineReducers, createStore } from "redux";
 
 import { devToolsEnhancer } from "@redux-devtools/extension";
 
-import { rootReducer } from "./contacts/reducer";
+import { contactsReducer} from "./contacts/reducer";
+import { filterReducer } from "./filter/reducer";
+
+const rootReducer = combineReducers(
+    {
+        contacts: contactsReducer,
+        filter: filterReducer,
+    }
+);
 
 // import initialContacts from "../data/contacts.json";
 

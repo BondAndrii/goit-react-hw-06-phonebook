@@ -1,8 +1,8 @@
 import React from "react";
-import {
-  useState,
-  // useEffect
-} from 'react';
+// import {
+//   useState,
+//   useEffect
+// } from 'react';
 import Form from "./Form/Form";
 import Filter from './Filter/Filter'
 import ContactList from "./ContactList/ContactList";
@@ -16,7 +16,7 @@ export default function App() {
 
   // const [contacts, setContacts] = useState(() => (JSON.parse(window.localStorage.getItem('contactsArr')) ?? contactsList)); 
  
-  const [filter, setFilter] = useState('');
+  // const [filter, setFilter] = useState('');
   const filtr = useSelector(getFilter);
   const contacts = useSelector(getContacts);
 
@@ -39,14 +39,18 @@ export default function App() {
   // const doFilter = (e) => { 
   //   setFilter(e.currentTarget.value)
   // }
-  const doClear = () => {
-    setFilter(''); 
-  }
+  // const doClear = () => {
+  //   setFilter(''); 
+  // }
  function toFoundAbonent(a,b) {
-    const normalizedFilter = a.toLowerCase();
-    return b.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter),
-    );
+   const normalizedFilter = a.toLowerCase();
+   console.log("normalizedFilter", normalizedFilter);
+   const findAbonent = b.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
+   console.log("findAbonent", findAbonent);
+   return findAbonent;
+    // return b.filter(contact =>
+    //   contact.name.toLowerCase().includes(normalizedFilter),
+    // );
   };
  const arr = toFoundAbonent(filtr, contacts)
 
@@ -59,7 +63,7 @@ export default function App() {
       <h1 className="Tittle">Записник контактів</h1>
       <Form />      
       <h2 className="SecondTittle">Контакти</h2>
-      <Filter value={filter}  onDelete={doClear} />
+      <Filter />
       <ContactList contacts={arr}  />
     </div>
   );

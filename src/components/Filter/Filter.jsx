@@ -8,14 +8,14 @@ import { addFilter, doClear } from "redux/filter/actions";
 
 // import { getContacts } from "redux/contacts/selectors";
 
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 import "./Filter.css"
 
-const Filter = ({ value, onChange, onDelete }) => {
-    const filtr = useSelector(getFilter);
+const Filter = () => {
+    const filter = useSelector(getFilter);
     // const contacts = useSelector(getContacts);
-    console.log("filtr", filtr);
+    console.log("filtr", filter);
     const dispatch = useDispatch()
     const doFilter = (event) => { 
         dispatch(addFilter(event.currentTarget.value ))
@@ -24,7 +24,7 @@ const Filter = ({ value, onChange, onDelete }) => {
     <label className="LabelFilter">
         <p className="Text">Пошук за ім'ям:</p> 
         <input
-            type="text" value={filtr}
+            type="text" value={filter}
             className="FilterInput"
             placeholder="введи ім'я"
             onChange={doFilter}
@@ -38,8 +38,8 @@ const Filter = ({ value, onChange, onDelete }) => {
     )}
 export default Filter;
 
-Filter.propTypes = {
-    value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-    onDelete: PropTypes.func.isRequired,
-}
+// Filter.propTypes = {
+//     value: PropTypes.string.isRequired,
+//     onChange: PropTypes.func.isRequired,
+//     onDelete: PropTypes.func.isRequired,
+// }
