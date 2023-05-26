@@ -2,21 +2,19 @@ import React, { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { addContact } from "redux/contacts/actions";
+import { addContact } from "redux/contacts/contactsSlice";
 
 import { getContacts } from "redux/contacts/selectors";
 
 import { nanoid } from "nanoid";
 
-// import PropTypes from "prop-types";
-
-import "./Form.css"
+import styles from "./Form.module.css";
 
 export default function Form() {
     
     const dispatch = useDispatch();
     const contacts = useSelector(getContacts);
-    // const [id, setId] = useState('');
+
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
     
@@ -24,13 +22,14 @@ export default function Form() {
     const numberId = nanoid();
 
     function reset() {
-        // setId('');
         setName('');
         setNumber('');        
-    }
+    };
+
     const handleChange = e => {
+
         const { name, value } = e.currentTarget;
-        // setId(id);
+
         switch (name) {
             case "names":
                 setName(value);
@@ -40,10 +39,11 @@ export default function Form() {
                 break;
             default:
                 return;
-        }
+        };
         
           
-    }
+    };
+
     const handleSubmit = e => {
         e.preventDefault();
         if (contacts.find(contact => contact.name === name)) {
@@ -58,18 +58,16 @@ export default function Form() {
         
        
         
-        reset(); 
-        // return priSubmit(data);
-        
+        reset();         
     }
 return (            
-            <form className="Form" onSubmit={handleSubmit}>
-                <label className="Label" htmlFor={nameId}>
-                    <p className="Text">Iм'я:</p>
+            <form className={styles.Form} onSubmit={handleSubmit}>
+                <label htmlFor={nameId}>
+                    <p className={styles.Text}>Iм'я:</p>
                     <input
                         type="text"
                         name="names"
-                        className="Input"
+                        className={styles.Input}
                         id={nameId}
                         value={name}
                         onChange={handleChange}
@@ -80,12 +78,12 @@ return (
                     />
                 </label>
                
-                <label className="Label" htmlFor={numberId}>
-                    <p className="Text">Номер:</p>
+                <label  htmlFor={numberId}>
+                    <p className={styles.Text}>Номер:</p>
                     <input
                         type="tel"
                         name="number"
-                        className="Input"
+                        className={styles.Input}
                         value={number}
                         id={numberId}
                         onChange={handleChange}
@@ -96,12 +94,8 @@ return (
                     />
                 </label>
                 
-                <button className="Button" type="submit">Запиши!</button>
+                <button className={styles.Button} type="submit">Запиши!</button>
             </form>               
         );
     
 }
-
-// Form.propTypes = {
-//     priSubmit: PropTypes.func.isRequired,
-// }

@@ -10,10 +10,10 @@ const filterSlice = createSlice({
             return action.payload;
         },
         doClear(state, action) {
-        return ""
+            return ""
+        }
     }
-    }
-})
+});
 
 export const { addFilter, doClear } = filterSlice.actions;
 
