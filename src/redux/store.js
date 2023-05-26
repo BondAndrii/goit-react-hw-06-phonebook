@@ -2,9 +2,9 @@
 
 // import { devToolsEnhancer } from "@redux-devtools/extension";
 
-import { contactsReducer } from "./contacts/reducer";
+import { contactsReducer } from "./contacts/contactsSlice";
 
-import { filterReducer } from "./filter/reducer";
+import { filterReducer } from "./filter/filterSlice";
 
 import { configureStore } from "@reduxjs/toolkit";
 
