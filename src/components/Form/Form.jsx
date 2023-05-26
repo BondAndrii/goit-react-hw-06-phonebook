@@ -50,8 +50,10 @@ export default function Form() {
             const message = `Абонент ${name} вже є в книзі`;
             alert(message);  
         }
-        else {          
-          dispatch(addContact(name, number));         
+        else { 
+            
+            const data = {id: nanoid(), name, number }
+            dispatch(addContact(data));         
         }  
         
        
