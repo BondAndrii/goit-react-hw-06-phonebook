@@ -21,6 +21,9 @@ export default function App() {
   const contacts = useSelector(getContacts);
   
   function toFoundAbonent(a, b) {  
+    if (!a) {
+      return contacts;
+    }
     
     const normalizedFilter = a.toLowerCase();
     
@@ -29,7 +32,7 @@ export default function App() {
     return findAbonent;   
   };
 
- const arr = toFoundAbonent(filter, contacts)
+  const arr = toFoundAbonent(filter, contacts);
 
   return (
     <div className={styles.Container}>
