@@ -39,10 +39,7 @@ export default function App() {
       <Form />      
       <h2 className={styles.SecondTittle}>Контакти</h2>
       <Filter />
-      <ContactList contacts={arr}  />
-      <footer>
-        <p className={styles.Text}>create by Citrus</p>
-      </footer>
+      <ContactList contacts={arr}  />     
     </div>
   );
 }
