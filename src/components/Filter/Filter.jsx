@@ -4,7 +4,7 @@ import {useDispatch, useSelector } from "react-redux";
 
 import { getFilter } from "redux/filter/selectors";
 
-import { addFilter, doClear } from "redux/filter/filterSlice";
+import { addFilter, doClear } from "redux/filter/slice";
 
 import styles from "./Filter.module.css"
 

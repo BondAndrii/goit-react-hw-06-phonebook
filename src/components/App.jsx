@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { useSelector } from "react-redux";
 
@@ -19,18 +19,14 @@ export default function App() {
 
   const filter = useSelector(getFilter);
   const contacts = useSelector(getContacts);
-
-  useEffect(()=>{
-    window.localStorage.setItem('contactsArr', JSON.stringify(contacts))
-  }, [contacts]);
   
-  function toFoundAbonent(a, b) {
-   
-   const normalizedFilter = a.toLowerCase();
-  
-   const findAbonent = b.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
-   
-   return findAbonent;   
+  function toFoundAbonent(a, b) {  
+    
+    const normalizedFilter = a.toLowerCase();
+    
+    const findAbonent = b.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
+    
+    return findAbonent;   
   };
 
  const arr = toFoundAbonent(filter, contacts)

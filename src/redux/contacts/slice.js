@@ -2,11 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import initialContacts from "../../data/contacts.json"
 
-const contactsInitialState = JSON.parse(window.localStorage.getItem('contactsArr')) ?? initialContacts;
+console.log("initialContacts", initialContacts)
 
 const contactsSlice = createSlice({
     name: "contacts",
-    initialState: contactsInitialState,
+    initialState: initialContacts,
     reducers: {
         addContact(state, action) {
             return [...state, action.payload,]
@@ -17,6 +17,8 @@ const contactsSlice = createSlice({
     },
 })
 
-export const { addContact, delContact } = contactsSlice.actions;
 
 export const contactsReducer = contactsSlice.reducer;
+
+export const { addContact, delContact } = contactsSlice.actions;
+
