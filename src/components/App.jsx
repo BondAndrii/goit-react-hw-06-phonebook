@@ -40,12 +40,10 @@ export default function App() {
       <header>
         <h1 className={styles.Tittle}>Записник контактів</h1>
       </header>
-      <body>
-        <Form />      
-        <h2 className={styles.SecondTittle}>Контакти</h2>
-        <Filter />
-        <ContactList contacts={arr}  />
-      </body>
+      <Form />      
+      <h2 className={styles.SecondTittle}>Контакти</h2>
+      <Filter />
+      <ContactList contacts={arr}  />
       <footer>
         <p className={styles.Text}>create by Citrus</p>
       </footer>
