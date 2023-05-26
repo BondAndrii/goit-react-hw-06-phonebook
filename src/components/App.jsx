@@ -27,7 +27,8 @@ export default function App() {
     
     const normalizedFilter = a.toLowerCase();
     
-    const findAbonent = b.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
+    const findAbonent = b.filter(({ name, number }) => name.toLowerCase().trim().includes(normalizedFilter) || 
+    number.trim().includes(normalizedFilter));
     
     return findAbonent;   
   };
